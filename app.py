@@ -21,7 +21,6 @@ def handle_answer():
     choice = request.form["answer"]
 
     responses.append(choice)
-    print(responses)
 
     return redirect(f"/questions/{len(responses)}/")
 
@@ -32,7 +31,7 @@ def question_page(ques_num):
     
     if ques_num < survey_length:
         question = satisfaction_survey.questions[ques_num]
-        print(f"ques num = {ques_num}: {len(responses)}")
+     
         next= f"/questions/{int(ques_num) + 1}"
     
     elif (len(responses) != ques_num):
@@ -41,7 +40,7 @@ def question_page(ques_num):
         return redirect(f"/questions/{len(responses)}")
     else:
         question = ""
-        print("I am here")
+
         return redirect("/thanks/")
 
     return render_template("question.html", question=question, button="NEXT", next=next)
