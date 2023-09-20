@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block question_form%}
+<!-- <form action={{next}} method="POST"> -->
+    <form action="/answer" method="POST">
+    <h2>{{ question.question }}</h2>
+    <h3>
+        {% for ans in question.choices %}
+        <input type="radio" name="answer" value={{ans}}>{{ ans }}
+        {% endfor %}
+    </h3>
+    <input class= "btn btn-primary" type="submit">
+
+</form>
+  
+
+
+{% endblock %}
+
+
+
+
